@@ -251,6 +251,20 @@ header{
     line-height: 1.5;
 }
 
+header strong, header p{
+    text-align: center;
+    font-size: smaller;
+    line-height: 2;
+}
+
+header a img{
+    width: 45px;
+}
+
+header a:link, header a:visited{
+    color: black;
+}
+
 #div-main-body-header{
     position: relative;
     height: 600px;
