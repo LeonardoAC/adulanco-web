@@ -58,8 +58,8 @@
                 <li>
                     <fieldset>
                         <div id="div-fieldset-botoes" class="div-main-body-fieldset-botoes">
-                            <input type="button" id="btnCriarCampos" value="Digitar dados"> ou 
-                            <input type="button" id="btnEntradaCSV" value="Importar arquivo CSV">
+                            <input type="button" id="btnCriarCampos" value="Digitar dados" title="informar dados manualmente"> ou 
+                            <input type="button" id="btnDownloadTemplate" value="Download do template CSV" title="Baixar planilha modelo">
                         </div>
                     </fieldset>
                 </li>
@@ -68,10 +68,17 @@
                         <legend>Digite abaixo </legend>
                         <!--form id="form-entrada-digitacao"-->
                             <div id="div-fieldset-entrada-digitacao"></div>
+                            <br>
                             <input type="button" id="btnCalcular" value="Calcular dados">
                             <input type="reset" id="btnLimparTabela" value="Limpar campos da tabela">
                             <input type="button" id="btnDeletarTabela" value="Deletar tabela" disabled>
-                            <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilita botão</label>
+                            <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilitar botão</label>
+                            <br>
+                            <ul>
+                                <li class="texto-observacao">*Calcular dados: Gera o resultado e gráficos.</li>
+                                <li class="texto-observacao">*Limpar campos: Esvazia todos os campos da tabela acima.</li>
+                                <li class="texto-observacao">*Para deletar toda a tabela, selecione o item "Habilitar botão". Após, clique no botão "Deletar tabela".</li>
+                            </ul>
                         <!--/form-->
                     </fieldset>
                 </li>
@@ -89,7 +96,8 @@
     window.addEventListener('scroll', menuFooter);
     //window.addEventListener('resize', menuFooter);
     document.getElementById('btnCalcular').addEventListener('click', funcCalcularDados);
-    document.getElementById('btnEntradaCSV').addEventListener('click', ()=>{window.location.href="entradacsv.html";});
+    document.getElementById('btnDownloadTemplate').addEventListener('click', criaTemplateCSVParaDownload);
+    //document.getElementById('btnEntradaCSV').addEventListener('click', ()=>{window.location.href="entradacsv.html";});
     document.getElementById('btnCriarCampos').addEventListener('click', criaCamposDinamicosParaUserDigitarDados);
     document.getElementById('btnDeletarTabela').addEventListener('click', ()=>{ removeElementoFilhoHTML('div-fieldset-entrada-digitacao','tb-digitar-dados'); });
     document.getElementById('cbHabilitaDelete').addEventListener('change', habilitaDesabilitaBotaoDeletarTabela);

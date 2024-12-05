@@ -189,6 +189,11 @@ input[type=button]{
     font-size: 10pt;
 }
 
+.texto-observacao{
+    /* Texto para entrelinhas. Texto menor */
+    font-size: x-small;
+}
+
 #div-footer-espacador{
     position: relative;
     vertical-align: top;

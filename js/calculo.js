@@ -36,12 +36,14 @@ function funcCalcularDados(){
     let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
     let bitola;
     let larguraPneu;
+    let nColetorCentral;
     qtdeColetores    = Number(document.getElementById('txtQtdeColetores').value);
     qtdeRepeticoes   = Number(document.getElementById('txtQtdeRepeticoes').value);
     qtdePassadas     = Number(document.getElementById('txtQtdePassadas').value);
     //coletorCentral   = document.getElementById('radioParImpar').value;
     bitola           = Number(document.getElementById('txtBitola').value);
     larguraPneu      = Number(document.getElementById('txtLarguraPneu').value);
+    nColetorCentral   = Number(document.getElementById('txtNumColetorCentral').value);
     // Inicializa o array
     for(let i=0; i<qtdeColetores; i++){
         arrPlanilhaResultado[i] = []; // Inicializa novas linhas
@@ -155,6 +157,57 @@ function exibePlanilhaResultado(){
         document.getElementById('div-resultado-tabela').innerHTML = outptHTML;
         //document.write(outptHTML);
     } // if
+}
+
+function criaTemplateCSVParaDownload(){
+    /**
+     * Cria o arquivo CSV de acordo com os parâmetros passados
+     */
+    var arrTemplate = []; // Cria um array multidimensional
+    let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
+    let bitola;
+    let larguraPneu;
+    let nColetorCentral;
+    var dados; // dados do template
+    qtdeColetores    = Number(document.getElementById('txtQtdeColetores').value);
+    qtdeRepeticoes   = Number(document.getElementById('txtQtdeRepeticoes').value);
+    qtdePassadas     = Number(document.getElementById('txtQtdePassadas').value);
+    //coletorCentral   = document.getElementById('radioParImpar').value;
+    bitola           = Number(document.getElementById('txtBitola').value);
+    larguraPneu      = Number(document.getElementById('txtLarguraPneu').value);
+    nColetorCentral   = Number(document.getElementById('txtNumColetorCentral').value);
+    // Inicializa o array
+    for(let i=0; i<qtdeColetores; i++){
+        arrTemplate[i] = []; // Inicializa novas linhas
+        for(let j=0; j<(qtdeRepeticoes+8); j++){
+            arrTemplate[i][j] = 0; // Preenche com zeros
+        } // j
+    } // i
+    dados = 'Coletor;';
+    // cria o cabeçalho
+    for(let i=0; i<qtdeRepeticoes; i++){
+        dados += 'Rep. '+(i+1)+';';
+    }
+    dados += 'Qtde passadas;Bitola;Largura pneu;Num do coletor central;Coletor central'; // cabeçalho do arquivo
+    // Preenche toda coluna "Coletor"
+    for(let i=1; i<=qtdeColetores; i++){
+        arrTemplate[i] = []; // Inicializa novas linhas
+        arrTemplate[i][0] = i; 
+    }
+    // Popula os dados apenas da linha 1, coluna "qtde passadas" até o fim da linha
+    arrTemplate[1][qtdeRepeticoes+2] = qtdePassadas+';';
+    arrTemplate[1][qtdeRepeticoes+3] = bitola+';';
+    arrTemplate[1][qtdeRepeticoes+4] = larguraPneu+';';
+    arrTemplate[1][qtdeRepeticoes+5] = nColetorCentral+';';
+    arrTemplate[1][qtdeRepeticoes+6] = 'P';
+
+    // Precisa mesclar os dados do array com do cabeçalho.... ******************************************************************************************
+
+    let ancora = document.createElement('a');
+    ancora.href = 'data:text/csv;charset=utf-8,' + encodeURI(dados); // link do download com o arquivo
+    ancora.target = '_blank'; // abre em nova página
+    ancora.download = 'Template AdulancoWeb '+Date.now(); // nome do arquivo CSV
+    ancora.click(); // dispara o download
 }
 
 function leiaCSV(){
