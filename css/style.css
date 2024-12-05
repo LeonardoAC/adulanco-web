@@ -1,0 +1,336 @@
+/*
+    Leonardo Alves Carrilho
+    Novembro de 2024
+    Paleta de cores:
+    #255000, #588100, #8db600, #f6a700, #fed353
+    https://paletadecolores.online/static/bed120f397d3c36ac1587ce2de38faa6/d8ea1/color_verde_manzana_y_mostaza.png
+*/
+
+*{
+    margin: 0;
+    left: 0;
+    padding: 0;
+    font-size: 14pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*
+    Tamanho apenas para desktops
+*/
+@media (min-width: 1024px) {
+html{
+    height: 100%;
+}
+
+body{
+    /*background: rgb(88,129,0);
+    background: linear-gradient(180deg, rgba(88,129,0,1) 0%, rgba(141,182,0,1) 62%, rgba(254,211,83,1) 100%);*/
+    color: #255000;
+    height: 100%;
+}
+
+nav, footer /*navbar*/{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#div-main-nav{
+    position: relative;
+    text-align: center;
+    height: 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: solid 4px #f6a700;
+    background-color: #255000;
+    width: 100%;
+}
+
+#div-main-footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    border-top: solid 4px #255000;
+    background-color: #f6a700;
+    padding: 10px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #f6a700;
+}
+
+a:hover, a:active{
+    text-decoration: underline;
+    color: #255000; 
+    background-color: #fed353;  
+}
+
+nav ul{
+    list-style: none;
+    display: inline-flex;
+}
+
+nav li{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 40px;
+}
+
+#div-main-body ul{
+    list-style: none;
+}
+
+#div-main-body li{
+    padding-top: 10px;
+}
+
+fieldset{
+    width: 70%;
+    margin-left: 10%;
+    border: solid black 1pt;
+    border-radius: 5pt;
+    text-align: center;
+}
+
+input[type=text]{
+    font-size: 20pt;
+    border: solid black 1px;
+    border-radius: 5px;
+    width: 100px;
+    padding-left: 10px;
+}
+
+input[type=button]{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#div-main-body{
+    position: relative;
+    top: 30px;
+    height: 120%;
+    margin-left: 5%;
+}
+
+.div-main-body-fieldset-envelope{
+    position: relative;
+    /*height: 180px;*/
+}
+
+.div-main-body-fieldset-botoes{
+    position: relative;
+    height: 100px;
+}
+
+.div-main-body-fieldset-left{
+    /* cria uma caixa alinhada à esquerda, no fieldset - labels */
+    display: inline-block; /*para as divs se alinharem lado-a-lado*/
+    vertical-align: top;
+    text-align: right;
+    left: 0px;
+    width: 45%;
+    padding: 5px;
+}
+
+.div-main-body-fieldset-right{
+    /* cria uma caixa alinhada à direita, no fieldset - inputs */
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    left: 50%;
+    width: 45%;
+    padding: 5px;
+}
+
+#div-fieldset-tratores-exemplo{
+    /* adiciona a imagem dos tratores*/
+    background-image: url("../assets/2tratores.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 81vh;
+}
+
+#div-fieldset-material{
+    /*Altura da caixa*/
+    height: 25vh;
+    align-content: center;
+}
+
+#div-fieldset-sobreposicao{
+    /*Altura da caixa*/
+    height: 35vh;
+    align-content: center;
+}
+
+#div-fieldset-botoes{
+    /*Altura da caixa*/
+    height: 12vh;
+    align-content: center;
+}
+
+#div-fieldset-entrada-digitacao{
+    align-content: center;
+    /*display: none;*/
+}
+
+#fieldset-entrada-digitacao{
+    display: none;
+}
+
+.p-fieldset-fonte-pqna{
+    font-size: x-small;
+}
+
+#div-main-footer p{
+    font-size: 10pt;
+}
+
+#div-footer-espacador{
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 150px;
+}
+
+#div-espaco-para-footer{
+    position: relative;
+    height: 100px;
+    /*border: 1px solid black;*/
+}
+
+#div-main-body-upload{
+    /* Centralizam os botões de upload*/
+    position: relative;
+    top: 20px;
+    text-align: center;
+    border: 2px dashed #8db600;
+    height: 250px;
+    width: 90%;
+}
+
+#div-output-csv{
+    position: relative;
+    text-align: center;
+    align-items: center;
+    top:20px;
+    /*border: 1px solid #f6a700;*/
+    width: 90%; 
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+
+h1{
+    font-size: 42pt;
+}
+
+h2{
+    font-size: 36pt;
+}
+
+h3{
+    font-size: 18pt;
+}
+
+h4{
+    font-size: 14pt;
+    color: #588100;
+}
+
+h5{
+    font-size: 13pt;
+    color: #f6a700;
+}
+
+header{
+    line-height: 1.5;
+}
+
+#div-main-body-header{
+    position: relative;
+    height: 600px;
+}
+
+.img-centro-grande{
+    width: 25%;
+    margin-left: 35%;
+}
+
+#div-canvas-grafico-barra{
+    position: relative;
+    width: 85%;
+    height: 500px;
+    /*border: 1px solid red;*/
+}
+
+#div-canvas-grafico-linhas{
+    position: relative;
+    width: 85%;
+    height: 500px;
+    /*border: 1px solid blue;*/
+}
+
+canvas{
+    margin-left: 17%;
+}
+
+table{
+    text-align: center;
+}
+
+.div-resultado-tabela{
+    position: relative;
+    width: 95%;
+}
+
+tr:nth-child(even) {
+    /* Tabela: linhas zebradas*/
+    background-color: #f2f2f2;
+  }
+
+.tb-resultado{
+    position: relative;
+    text-align: center;
+    /*margin-left: 2%;*/
+    width: 95%;
+    border-spacing: 0;
+    border:1px solid #588100;
+}
+
+.tb-resultado th, td{
+    border-bottom: 1px solid #588100;
+    font-size: smaller;
+}
+
+#div-bloqueio-de-tela{
+    display: none;
+}
+
+} /* @media desktop*/
+
+/****************************************************************/
+@media (max-width: 1023px) {
+    #div-bloqueio-de-tela{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000000;
+        display: block;
+        z-index: 100;
+    }
+
+    h1{
+        color: #ffffff;
+        font-size: 40px;
+        text-align: center;
+        align-items: center;
+    }
+}/*@media mobile*/

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/menu.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/calculo.js"></script>
+    <script src="js/criagrafico.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Adulanço web</title>
+</head>
+<body>
+    <div id="div-bloqueio-de-tela"><h1>Requer dispositivo com tela maior</h1></div>
+    <div id="div-main">
+        <nav><div id="div-main-nav"></div></nav>
+        <div id="div-main-body">
+            <fieldset>
+                <legend>Gráfico de perfil</legend>
+                <div id="div-canvas-grafico-barra">
+                    <canvas id="canvasBarra" style="width:80%;max-width:700px"></canvas>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Gráfico de Coeficiente de Variação (CV)</legend>
+                <div id="div-canvas-grafico-linhas">
+                    <canvas id="canvasLinhas" style="width:100%;max-width:700px"></canvas>
+                </div>
+            </fieldset>
+            <br>
+            <div id="div-resultado-tabela"><!-- A tabela de resultado será exibida aqui --></div>
+            <div id="div-espaco-para-footer"></div>
+        </div>
+        <footer><div id="div-main-footer"></div></footer>
+    </div>
+</body>
+<script>
+    window.addEventListener('load', menuMain);
+    window.addEventListener('load', menuFooter);
+    window.addEventListener('scroll', menuFooter);
+    window.addEventListener('load', exibePlanilhaResultado);
+    window.addEventListener('load', graficoBarra);
+    window.addEventListener('load', graficoMultiplasLinhas);
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/menu.js"></script>
+    <script src="js/footer.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Adulanço web</title>
+</head>
+<body>
+    <div id="div-bloqueio-de-tela"><h1>Requer dispositivo com tela maior</h1></div>
+    <div id="div-main">
+        <nav><div id="div-main-nav"></div></nav>
+        <div id="div-main-body">
+            <img src="assets/logoCC.png" alt="logo creative commons">
+            <img src="assets/CCheader.png" alt="Atribuição não comercial 4.0 internacional">
+            <h3><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br" target="_blank">Este software web é regido sob a licença CC BY-NC 4.0 [leia aqui]</a></h3>
+            <div id="div-espaco-para-footer"></div>
+        </div>
+        <footer><div id="div-main-footer"></div></footer>
+    </div>
+</body>
+<script>
+    window.addEventListener('load', menuMain);
+    window.addEventListener('load', menuFooter);
+    window.addEventListener('resize', menuFooter);
+</script>
+</html>

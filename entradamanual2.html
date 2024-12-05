@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/menu.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/calculo.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Entrada Manual</title>
+</head>
+<body>
+    <div id="div-bloqueio-de-tela"><h1>Requer dispositivo com tela maior</h1></div>
+    <div id="div-main">
+        <nav><div id="div-main-nav"></div></nav>
+        <div id="div-main-body">
+            <form id="form-entrada-manual">
+            <ul>
+                <li>
+                    <fieldset>
+                        <legend>Exemplo (par/ímpar)</legend>
+                        <div id="div-fieldset-tratores-exemplo">
+                            <!--img src="assets/2tratores.png" width="50%" title="Figura exemplo de coletor central par e ímpar" alt="exemplo de par e ímpar"-->
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <legend>Material</legend>
+                        <div id="div-fieldset-material" class="div-main-body-fieldset-envelope">
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeColetores">Qtde coletores</label></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeColetores" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeRepeticoes">Qtde repetições</label><p class="p-fieldset-fonte-pqna">(máx. 10 rep.)</p></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeRepeticoes" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdePassadas">Qtde passadas</label></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdePassadas" maxlength="2" value="" ></div>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <legend>Sobreposição</legend>
+                        <div id="div-fieldset-sobreposicao" class="div-main-body-fieldset-envelope">
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtBitola">Bitola</label><p class="p-fieldset-fonte-pqna">(largura/distância entre coletores)</p></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="" > cm</div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtLarguraPneu">Largura do Pneu</label></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtLarguraPneu" maxlength="3" value="" > mm</div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtNumColetorCentral">Nº do coletor central</label></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="radioParImpar">Coletores centrais</label><p class="p-fieldset-fonte-pqna">(Exemplo na figura acima)</p></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right">
+                                <input type="radio" id="par" name="radioParImpar" value="par"><label for="par"> Par</label><br>
+                                <input type="radio" id="impar" name="radioParImpar" value="impar"><label for="impar"> Impar</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset>
+                        <div id="div-fieldset-botoes" class="div-main-body-fieldset-botoes">
+                            <input type="button" id="btnCriarCampos" value="Digitar dados"> ou 
+                            <input type="button" id="btnEntradaCSV" value="Importar arquivo CSV">
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset id="fieldset-entrada-digitacao">
+                        <legend>Digite abaixo </legend>
+                        <!--form id="form-entrada-digitacao"-->
+                            <div id="div-fieldset-entrada-digitacao"></div>
+                            <input type="button" id="btnCalcular" value="Calcular dados">
+                            <input type="reset" id="btnLimparTabela" value="Limpar campos da tabela">
+                            <input type="button" id="btnDeletarTabela" value="Deletar tabela" disabled>
+                            <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilita botão</label>
+                        <!--/form-->
+                    </fieldset>
+                </li>
+            </ul>
+            </form>
+            <div id="div-espaco-para-footer"></div>
+        </div>
+        
+        <footer><div id="div-main-footer"></div></footer>
+    </div>
+</body>
+<script>
+    window.addEventListener('load', menuMain);
+    window.addEventListener('load', menuFooter);
+    window.addEventListener('scroll', menuFooter);
+    //window.addEventListener('resize', menuFooter);
+    document.getElementById('btnCalcular').addEventListener('click', funcCalcularDados);
+    document.getElementById('btnEntradaCSV').addEventListener('click', ()=>{window.location.href="entradacsv.html";});
+    document.getElementById('btnCriarCampos').addEventListener('click', criaCamposDinamicosParaUserDigitarDados);
+    document.getElementById('btnDeletarTabela').addEventListener('click', ()=>{ removeElementoFilhoHTML('div-fieldset-entrada-digitacao','tb-digitar-dados'); });
+    document.getElementById('cbHabilitaDelete').addEventListener('change', habilitaDesabilitaBotaoDeletarTabela);
+    document.getElementById('btnLimparTabela').addEventListener('click', habilitaDesabilitaBotaoDeletarTabela);
+</script>
+</html>
