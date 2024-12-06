@@ -189,25 +189,32 @@ function criaTemplateCSVParaDownload(){
         dados += 'Rep. '+(i+1)+';';
     }
     dados += 'Qtde passadas;Bitola;Largura pneu;Num do coletor central;Coletor central'; // cabeçalho do arquivo
-    // Preenche toda coluna "Coletor"
+    // Preenche linha-a-linha
     for(let i=1; i<=qtdeColetores; i++){
-        arrTemplate[i] = []; // Inicializa novas linhas
-        arrTemplate[i][0] = i; 
-    }
-    // Popula os dados apenas da linha 1, coluna "qtde passadas" até o fim da linha
-    arrTemplate[1][qtdeRepeticoes+2] = qtdePassadas+';';
-    arrTemplate[1][qtdeRepeticoes+3] = bitola+';';
-    arrTemplate[1][qtdeRepeticoes+4] = larguraPneu+';';
-    arrTemplate[1][qtdeRepeticoes+5] = nColetorCentral+';';
-    arrTemplate[1][qtdeRepeticoes+6] = 'P';
-
-    // Precisa mesclar os dados do array com do cabeçalho.... ******************************************************************************************
-
+        dados += '\r\n'; // Pula linha
+        dados += 'Col. '+i+';'; // Coluna A
+        for(let j=0; j<qtdeRepeticoes; j++){
+            // Colunas "repetições"  dentro da linha i
+            dados += ";"; // Valor deve ser vazio, para o user preencher
+        } // for j
+        dados += qtdePassadas+';';
+        dados += bitola+';';
+        dados += larguraPneu+';';
+        dados += nColetorCentral+';';
+        dados += 'P';
+    } // for i
     let ancora = document.createElement('a');
     ancora.href = 'data:text/csv;charset=utf-8,' + encodeURI(dados); // link do download com o arquivo
     ancora.target = '_blank'; // abre em nova página
-    ancora.download = 'Template AdulancoWeb '+Date.now(); // nome do arquivo CSV
+    ancora.download = 'AdulancoWebTemplate'+Date.now(); // nome do arquivo CSV
     ancora.click(); // dispara o download
+    /**
+     * Abrirá uma caixa de diálogo "Salvar em" (no Windows), contendo o nome e extensão do arquivo.
+     * O user deevrá preencher somente as colunas das repetições, salvar com a mesma extensão e fazer upload.
+     * Obs: Na verdade, não há o upload de arquivo. O app lê o CSV e alimenta os campos automaticamente.
+     * Nenhum arquivo é enviado para o servidor remoto.
+     */
+    window.location.href = 'entradacsv.html'; // abre a página de upload
 }
 
 function leiaCSV(){
@@ -269,7 +276,7 @@ function criaCamposDinamicosParaUserDigitarDados(){
             objetoTabela += '<td>Col. '+i+'</td>';
             for(let j=1; j<=qtdeRepeticoes; j++){
                 // Campos das colunas repetições (C = coletor R = repetição)
-                objetoTabela += '<td><input type="text" id="txtC'+i+'R'+j+'" value="'+Number(i*3.07).toFixed(2)+'"></td>';
+                objetoTabela += '<td><input type="text" id="txtC'+i+'R'+j+'" value=""></td>';
             } // j
             objetoTabela += '</tr><tr>';
         } // i
@@ -296,6 +303,13 @@ function removeElementoFilhoHTML(idElementoPai, idElementoFilho){
     document.getElementById(idElementoPai).innerHTML = "";
     habilitaDesabilitaBotaoDeletarTabela();
     document.getElementById('fieldset-entrada-digitacao').style.display = 'none';
+    // Limpa os campos
+    document.getElementById('txtQtdeColetores').value = "";
+    document.getElementById('txtQtdeRepeticoes').value = "";
+    document.getElementById('txtQtdePassadas').value = "";
+    document.getElementById('txtBitola').value = "";
+    document.getElementById('txtLarguraPneu').value = "";
+    document.getElementById('txtNumColetorCentral').value = "";
 } // function
 
 function calculaCV(){

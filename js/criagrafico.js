@@ -72,7 +72,7 @@ function graficoBarra(){
     }else{
         // Não há dados para exibição
         let objetoCanvasBarra = document.getElementById('div-canvas-grafico-barra');
-        objetoCanvasBarra.innerHTML = '<h4>Não há dados para exibir o gráfico PERFIL</h4><a href="entradamanual.html">Comece clicando aqui.</a>';
+        objetoCanvasBarra.innerHTML = '<h4>Não há dados para exibir o gráfico "PERFIL"</h4><a href="entradamanual.html">Comece clicando aqui.</a>';
     }
     
 } // function
@@ -114,7 +114,7 @@ function graficoMultiplasLinhas(){
     }else{
         // Não há dados para exibição
         let objetoCanvasBarra = document.getElementById('div-canvas-grafico-linhas');
-        objetoCanvasBarra.innerHTML = '<h4>Não há dados para exibir o gráfico CV</h4><a href="entradamanual.html">Comece clicando aqui.</a>';
+        objetoCanvasBarra.innerHTML = '<h4>Não há dados para exibir o gráfico "CV"</h4><a href="entradamanual.html">Comece clicando aqui.</a>';
     }
     
 }// function

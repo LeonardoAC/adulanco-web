@@ -177,6 +177,12 @@ input[type=button]{
     /*display: none;*/
 }
 
+#div-fieldset-passadas{
+    /* Grafico de passadas - distribuição alternada e contínua */
+    position: relative;
+    height: 50vh;
+}
+
 #fieldset-entrada-digitacao{
     display: none;
 }

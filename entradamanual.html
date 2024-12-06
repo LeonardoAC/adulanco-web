@@ -29,11 +29,11 @@
                         <legend>Material</legend>
                         <div id="div-fieldset-material" class="div-main-body-fieldset-envelope">
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeColetores">Qtde coletores</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeColetores" maxlength="2" value="25" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeColetores" maxlength="2" value="" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeRepeticoes">Qtde repetições</label><p class="p-fieldset-fonte-pqna">(máx. 10 rep.)</p></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeRepeticoes" maxlength="2" value="3" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeRepeticoes" maxlength="2" value="" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdePassadas">Qtde passadas</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdePassadas" maxlength="2" value="1" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdePassadas" maxlength="2" value="" ></div>
                         </div>
                     </fieldset>
                 </li>
@@ -42,11 +42,11 @@
                         <legend>Sobreposição</legend>
                         <div id="div-fieldset-sobreposicao" class="div-main-body-fieldset-envelope">
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtBitola">Bitola</label><p class="p-fieldset-fonte-pqna">(largura/distância entre coletores)</p></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="50" > cm</div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="" > cm</div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtLarguraPneu">Largura do Pneu</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtLarguraPneu" maxlength="3" value="380" > mm</div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtLarguraPneu" maxlength="3" value="" > mm</div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtNumColetorCentral">Nº do coletor central</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="13" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="radioParImpar">Coletores centrais</label><p class="p-fieldset-fonte-pqna">(Exemplo na figura acima)</p></div>
                             <div id="div-fieldset-input" class="div-main-body-fieldset-right">
                                 <input type="radio" id="par" name="radioParImpar" value="par" checked><label for="par"> Par</label><br>
@@ -97,7 +97,6 @@
     //window.addEventListener('resize', menuFooter);
     document.getElementById('btnCalcular').addEventListener('click', funcCalcularDados);
     document.getElementById('btnDownloadTemplate').addEventListener('click', criaTemplateCSVParaDownload);
-    //document.getElementById('btnEntradaCSV').addEventListener('click', ()=>{window.location.href="entradacsv.html";});
     document.getElementById('btnCriarCampos').addEventListener('click', criaCamposDinamicosParaUserDigitarDados);
     document.getElementById('btnDeletarTabela').addEventListener('click', ()=>{ removeElementoFilhoHTML('div-fieldset-entrada-digitacao','tb-digitar-dados'); });
     document.getElementById('cbHabilitaDelete').addEventListener('change', habilitaDesabilitaBotaoDeletarTabela);
