@@ -1,6 +1,15 @@
 /**
+ * @preserve
+ * Leonardo A. Carrilho
+ * Novembro de 2024
+ * Versão 1.0
+ * Leia a licença de uso em: https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br
+ * Released under CC BY-NC 4.0 License
+ * @endpreserve
+ */
+/**
  * Menu a ser usado em todas as páginas
-*/
+ */
 
 function menuMain(){
     let objetoMenu = '<ul><li><a id="0" href="index.html">HOME</a></li><li><a id="1" href="entradamanual.html">ENTRADA MANUAL</a></li><li><a id="2" href="entradacsv.html">IMPORTAR CSV</a></li><li><a id="3" href="passadas.html">PASSADAS</a></li><li><a id="4" href="resultado.html">RESULTADOS</a></li><li><a id="5" href="licenca.html">LICENÇA</a></li><li><a id="6" href="instrucoes.html">INSTRUÇÕES DE USO</a></li></ul>';

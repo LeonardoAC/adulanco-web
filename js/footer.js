@@ -1,4 +1,13 @@
 /**
+ * @preserve
+ * Created by Leonardo A. Carrilho
+ * 2024, Nov
+ * Version 1.0
+ * Leia a licenca de uso em: https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br
+ * Released under CC BY-NC 4.0 License
+ * @endpreserve
+ */
+/**
  * Footer a ser usado em todas as páginas
 */
 
