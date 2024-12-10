@@ -91,6 +91,16 @@ nav li{
     padding-top: 10px;
 }
 
+#div-img-adulancoweb{
+    background-image: url('../assets/AdulancoWeb-abertura.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+    z-index: 0;
+    opacity: 50%;
+}
+
 fieldset{
     width: 70%;
     margin-left: 10%;
@@ -281,8 +291,22 @@ header a:link, header a:visited{
 }
 
 #div-main-body-header{
-    position: relative;
-    height: 600px;
+    position: absolute;
+    top: -600px;
+    height: 500px;
+    width: 70%;
+    /* alinha texto no centro e meio: inicio*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* alinha texto: fim*/
+    border: 4px solid ffffff;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #ffffff;
+    opacity: 85%;
+    box-shadow: 10px 10px 5px #000000;
+    margin-left: 10%;
 }
 
 .img-centro-grande{
