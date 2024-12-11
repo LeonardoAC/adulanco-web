@@ -248,13 +248,13 @@ function mostraCSV(content){
     let table = '<table id=""><tr>';
 
     // Build table headers from the first row
-    const headers = rows[0].split(',');
+    const headers = rows[0].split(';');
     headers.forEach(header => table += `<th>${header.trim()}</th>`);
     table += '</tr><tbody>';
 
     // Build table rows from the remaining rows
     rows.slice(1).forEach(row => {
-        const cells = row.split(',');
+        const cells = row.split(';');
         table += '<tr>';
         cells.forEach(cell => table += `<td>${cell.trim()}</td>`);
         table += '</tr>';
