@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/menu.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="js/calculo.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/upload.css">
-    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/upload.css" loading="lazy" media="all">
+    <link rel="stylesheet" href="css/font.css" loading="lazy" media="all">
     <title>Entrada CSV</title>
 </head>
 <body>
@@ -28,11 +25,16 @@
             </div>
             <!--*****************************************************************************************-->
             <div id="div-output-csv"></div>
+            <br>
+            <br>
             <div id="div-espaco-para-footer"></div>
         </div>
         <footer><div id="div-main-footer" class=""></div></footer>
     </div>
 </body>
+<script src="js/menu.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/calculo.js"></script>
 <script>
     window.addEventListener('load', menuMain);
     window.addEventListener('load', menuFooter);

@@ -16,7 +16,6 @@
     padding: 0;
     font-size: 14pt;
     /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
-    /*font-family: varelaround;*/
     font-family: exo2, Verdana, Geneva, Tahoma;
 }
 
@@ -94,6 +93,7 @@ nav li{
 }
 
 #div-img-adulancoweb{
+    position: absolute;
     background-image: url('../assets/AdulancoWeb-abertura.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -220,13 +220,13 @@ input[type=button]{
     position: relative;
     vertical-align: top;
     display: inline-block;
-    width: 150px;
+    width: 100px;
 }
 
 #div-espaco-para-footer{
+    /*Cria um espaço entre o fim da página e o footer*/
     position: relative;
     height: 100px;
-    /*border: 1px solid black;*/
 }
 
 #div-main-body-upload{
@@ -236,7 +236,7 @@ input[type=button]{
     text-align: center;
     border: 2px dashed #8db600;
     height: 250px;
-    width: 90%;
+    width: 95%;
 }
 
 #div-output-csv{
@@ -294,7 +294,7 @@ header a:link, header a:visited{
 
 #div-main-body-header{
     position: absolute;
-    top: -600px;
+    top: 10px;
     height: 500px;
     width: 70%;
     /* alinha texto no centro e meio: inicio*/
@@ -326,14 +326,14 @@ header a:link, header a:visited{
 
 #div-canvas-grafico-barra{
     position: relative;
-    width: 85%;
+    width: 99%;
     height: 500px;
     /*border: 1px solid red;*/
 }
 
 #div-canvas-grafico-linhas{
     position: relative;
-    width: 85%;
+    width: 99%;
     height: 500px;
     /*border: 1px solid blue;*/
 }

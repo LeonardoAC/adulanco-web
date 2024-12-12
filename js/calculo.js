@@ -172,59 +172,61 @@ function criaTemplateCSVParaDownload(){
     /**
      * Cria o arquivo CSV de acordo com os parâmetros passados
      */
-    var arrTemplate = []; // Cria um array multidimensional
-    let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
-    let bitola;
-    let larguraPneu;
-    let nColetorCentral;
-    var dados; // dados do template
-    qtdeColetores    = Number(document.getElementById('txtQtdeColetores').value);
-    qtdeRepeticoes   = Number(document.getElementById('txtQtdeRepeticoes').value);
-    qtdePassadas     = Number(document.getElementById('txtQtdePassadas').value);
-    //coletorCentral   = document.getElementById('radioParImpar').value;
-    bitola           = Number(document.getElementById('txtBitola').value);
-    larguraPneu      = Number(document.getElementById('txtLarguraPneu').value);
-    nColetorCentral   = Number(document.getElementById('txtNumColetorCentral').value);
-    // Inicializa o array
-    for(let i=0; i<qtdeColetores; i++){
-        arrTemplate[i] = []; // Inicializa novas linhas
-        for(let j=0; j<(qtdeRepeticoes+8); j++){
-            arrTemplate[i][j] = 0; // Preenche com zeros
-        } // j
-    } // i
-    dados = 'Coletor;';
-    // cria o cabeçalho
-    for(let i=0; i<qtdeRepeticoes; i++){
-        dados += 'Rep. '+(i+1)+';';
-    }
-    dados += 'Qtde passadas;Bitola;Largura pneu;Num do coletor central;Coletor central'; // cabeçalho do arquivo
-    // Preenche linha-a-linha
-    for(let i=1; i<=qtdeColetores; i++){
-        dados += '\r\n'; // Pula linha
-        dados += 'Col. '+i+';'; // Coluna A
-        for(let j=0; j<qtdeRepeticoes; j++){
-            // Colunas "repetições"  dentro da linha i
-            dados += ";"; // Valor deve ser vazio, para o user preencher
-        } // for j
-        dados += qtdePassadas+';';
-        dados += bitola+';';
-        dados += larguraPneu+';';
-        dados += nColetorCentral+';';
-        dados += 'P';
-    } // for i
-    let ancora = document.createElement('a');
-    ancora.href = 'data:text/csv;charset=utf-8,' + encodeURI(dados); // link do download com o arquivo
-    ancora.target = '_blank'; // abre em nova página
-    ancora.download = 'AdulancoWebTemplate'+Date.now(); // nome do arquivo CSV
-    ancora.click(); // dispara o download
-    /**
-     * Abrirá uma caixa de diálogo "Salvar em" (no Windows), contendo o nome e extensão do arquivo.
-     * O user deevrá preencher somente as colunas das repetições, salvar com a mesma extensão e fazer upload.
-     * Obs: Na verdade, não há o upload de arquivo. O app lê o CSV e alimenta os campos automaticamente.
-     * Nenhum arquivo é enviado para o servidor remoto.
-     */
-    window.location.href = 'entradacsv.html'; // abre a página de upload
-}
+    if (validaCampos()){
+        var arrTemplate = []; // Cria um array multidimensional
+        let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
+        let bitola;
+        let larguraPneu;
+        let nColetorCentral;
+        var dados; // dados do template
+        qtdeColetores    = Number(document.getElementById('txtQtdeColetores').value);
+        qtdeRepeticoes   = Number(document.getElementById('txtQtdeRepeticoes').value);
+        qtdePassadas     = Number(document.getElementById('txtQtdePassadas').value);
+        //coletorCentral   = document.getElementById('radioParImpar').value;
+        bitola           = Number(document.getElementById('txtBitola').value);
+        larguraPneu      = Number(document.getElementById('txtLarguraPneu').value);
+        nColetorCentral   = Number(document.getElementById('txtNumColetorCentral').value);
+        // Inicializa o array
+        for(let i=0; i<qtdeColetores; i++){
+            arrTemplate[i] = []; // Inicializa novas linhas
+            for(let j=0; j<(qtdeRepeticoes+8); j++){
+                arrTemplate[i][j] = 0; // Preenche com zeros
+            } // j
+        } // i
+        dados = 'Coletor;';
+        // cria o cabeçalho
+        for(let i=0; i<qtdeRepeticoes; i++){
+            dados += 'Rep. '+(i+1)+';';
+        }
+        dados += 'Qtde passadas;Bitola;Largura pneu;Num do coletor central;Coletor central'; // cabeçalho do arquivo
+        // Preenche linha-a-linha
+        for(let i=1; i<=qtdeColetores; i++){
+            dados += '\r\n'; // Pula linha
+            dados += 'Col. '+i+';'; // Coluna A
+            for(let j=0; j<qtdeRepeticoes; j++){
+                // Colunas "repetições"  dentro da linha i
+                dados += ";"; // Valor deve ser vazio, para o user preencher
+            } // for j
+            dados += qtdePassadas+';';
+            dados += bitola+';';
+            dados += larguraPneu+';';
+            dados += nColetorCentral+';';
+            dados += 'P';
+        } // for i
+        let ancora = document.createElement('a');
+        ancora.href = 'data:text/csv;charset=utf-8,' + encodeURI(dados); // link do download com o arquivo
+        ancora.target = '_blank'; // abre em nova página
+        ancora.download = 'AdulancoWebTemplate'+Date.now(); // nome do arquivo CSV
+        ancora.click(); // dispara o download
+        /**
+         * Abrirá uma caixa de diálogo "Salvar em" (no Windows), contendo o nome e extensão do arquivo.
+         * O user deevrá preencher somente as colunas das repetições, salvar com a mesma extensão e fazer upload.
+         * Obs: Na verdade, não há o upload de arquivo. O app lê o CSV e alimenta os campos automaticamente.
+         * Nenhum arquivo é enviado para o servidor remoto.
+         */
+        window.location.href = 'entradacsv.html'; // abre a página de upload
+    } // validaCampos
+} // function
 
 function leiaCSV(){
     // Le o arquivo CSV
@@ -245,24 +247,49 @@ function leiaCSV(){
 
 function mostraCSV(content){
     const rows = content.split('\n');
-    let table = '<table id=""><tr>';
+    const delimitador = ';';
+    let table = '<div id="div-output-csv">';
+    table += '<table id="tb-resultado" class="tb-resultado"><tr>';
 
     // Build table headers from the first row
-    const headers = rows[0].split(';');
+    const headers = rows[0].split(delimitador);
     headers.forEach(header => table += `<th>${header.trim()}</th>`);
-    table += '</tr><tbody>';
+    table += '</tr>';
 
     // Build table rows from the remaining rows
     rows.slice(1).forEach(row => {
-        const cells = row.split(';');
+        const cells = row.split(delimitador);
         table += '<tr>';
         cells.forEach(cell => table += `<td>${cell.trim()}</td>`);
         table += '</tr>';
     });
 
-    table += '</tbody></table>';
+    table += '</table>';
+    table += '<input type="button" id="btnCalcularDados" value="Calcular dados" onclick="transfereDadosDoCSVparaArray();">';
+    table += '<input type="button" id="btnEditarDados" value="Editar dados" onclick="exibeCamposDeEdicaoComValoresDoCSV();">';
+    table += '</div>';
     document.getElementById('div-output-csv').innerHTML = table;
 } // mostraCSV
+
+function transfereDadosDoCSVparaArray(){
+    //alert('transfereDadosDoCSVparaArray()');
+    const input = document.getElementById('input-arquivo-csv');
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const content = e.target.result;
+            console.log(content);
+        };
+        reader.readAsText(file);
+    } else {
+        alert('Problemas ao ler o CSV');
+    }
+}
+
+function exibeCamposDeEdicaoComValoresDoCSV(){
+    /** */
+}
 
 function criaCamposDinamicosParaUserDigitarDados(){
     /* na página entradamanual, cria a qtde de linhas e colunas necessárias para o user entrar com os dados */
@@ -306,6 +333,7 @@ function habilitaDesabilitaBotaoDeletarTabela(){
 }   // function
 
 function removeElementoFilhoHTML(idElementoPai, idElementoFilho){
+    /** Remove a tabela de digitar dados */
     //console.log(document.getElementById(idElementoPai)); 
     //console.log(document.getElementById(idElementoFilho)); 
     //document.getElementById(idElementoPai).remove(idElementoFilho);
@@ -354,3 +382,4 @@ function calculaVariancia(){
      */
 
 }
+

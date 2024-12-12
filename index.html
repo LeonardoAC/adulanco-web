@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/menu.js"></script>
-    <script src="js/footer.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/font.css" media="all">
     <title>Adulanço web</title>
+    <!--https://pagespeed.web.dev/-->
 </head>
 <body>
     <div id="div-bloqueio-de-tela"><h1>Requer dispositivo com tela maior</h1></div>
@@ -19,21 +18,20 @@
                 <header>
                     <h1>Adulanço Web</h1>
                     <h3>[Em desenvolvimento!]</h3>
-                    <!--h3>Versão BETA | novembro de 2024</h3-->
-                    <!--img id="img-logo-fatec" class="img-centro-grande" src="assets/logofatec.png" alt="logo da Fatec Pompeia"-->
-                    <h4>Criação: Leonardo Alves Carrilho <a href="https://lattes.cnpq.br/6385723645186105" target="_blank"><img src="assets/lattes.png" width="60px" alt="Plataforma Lattes" title="Lattes de Leonardo"></a></h4>
+                    <h3>Versão BETA | novembro de 2024</h3>
+                    <h4>Criação: Leonardo Alves Carrilho <a href="https://lattes.cnpq.br/6385723645186105" target="_blank"><img src="assets/lattes.png" width="60px" alt="Plataforma Lattes" title="Lattes de Leonardo" loading="lazy"></a></h4>
                     <br>
                     <h5>"Inspirado na planilha Adulanço 3.1 - LAP/Esalq - por Mark Spekken"</h5>
                 </header>
             </div>
-            <div id="div-espaco-para-footer"></div>
         </div>
         <footer><div id="div-main-footer"></div></footer>
     </div>
 </body>
+<script src="js/menu.js"></script>
+<script src="js/footer.js"></script>
 <script>
     window.addEventListener('load', menuMain);
     window.addEventListener('load', menuFooter);
-    window.addEventListener('resize', menuFooter);
 </script>
 </html>
