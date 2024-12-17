@@ -273,24 +273,27 @@ function mostraCSV(content){
 
 function transfereDadosDoCSVparaArray(){
     //alert('transfereDadosDoCSVparaArray()');
-    const input = document.getElementById('input-arquivo-csv');
-    const file = input.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const content = e.target.result;
-            x = content;
-            //console.table(x);
-        };
-        reader.readAsText(file);
-    } else {
-        alert('Problemas ao ler o CSV');
-    }
-    if (deletaDadosArmazenadosLocalmente()){
-        
-    } else {
-        alert('(!) Dados não foram deletados no browser (!)');
-    }// if deleta
+    const fileInput = document.getElementById('input-arquivo-csv'); // Aponta o arquivo
+    const file = fileInput.files[0];    // Pega o 1 arquivo que aparece
+  
+        if (file) {
+          const reader = new FileReader();
+  
+          reader.onload = function(event) {
+            const text = event.target.result;
+            const rows = text.split('\n').map(row => row.split(',').map(cell => cell.trim()));
+            //output.textContent = JSON.stringify(rows, null, 2);
+            console.log(rows); // Logs the 2D array to the console
+          };
+  
+          reader.onerror = function() {
+            alert('Erro ao ler o aqruivo');
+          };
+  
+          reader.readAsText(file);
+        } else {
+          alert('Nenhum CSV escolhido. Faça isso primeiro!');
+        }
 } // function
 
 function deletaDadosArmazenadosLocalmente(){

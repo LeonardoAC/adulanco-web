@@ -19,6 +19,19 @@
     font-family: exo2, Verdana, Geneva, Tahoma;
 }
 
+:root{
+    /* variaveis globais aqui */
+    /*--verdeForte: #255000;*/
+    --verdeForte: #0A7B3E;
+    --verdeMedio: #588100;
+    --verdeClaro: #8db600;
+    --verdeSPatrick: #0A7B3E; /*Nao usado*/
+    --laranja: #f6a700;
+    --amarelo: #fed353;
+    --preto: #000000;
+    --cinza: grey;
+}
+
 /*
     Tamanho apenas para desktops
 */
@@ -30,7 +43,7 @@ html{
 body{
     /*background: rgb(88,129,0);
     background: linear-gradient(180deg, rgba(88,129,0,1) 0%, rgba(141,182,0,1) 62%, rgba(254,211,83,1) 100%);*/
-    color: #255000;
+    color: var(--verdeForte);
     height: 100%;
 }
 
@@ -46,8 +59,8 @@ nav, footer /*navbar*/{
     height: 50px;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-bottom: solid 4px #f6a700;
-    background-color: #255000;
+    border-bottom: solid 4px var(--laranja);
+    background-color: var(--verdeForte);
     width: 100%;
 }
 
@@ -57,20 +70,20 @@ nav, footer /*navbar*/{
     bottom: 0;
     width: 100%;
     height: 50px;
-    border-top: solid 4px #255000;
-    background-color: #f6a700;
+    border-top: solid 4px var(--verdeForte);
+    background-color: var(--laranja);
     padding: 10px;
 }
 
 a:link, a:visited{
     text-decoration: none;
-    color: #f6a700;
+    color: var(--laranja);
 }
 
 a:hover, a:active{
     text-decoration: underline;
-    color: #255000; 
-    background-color: #fed353;  
+    color: var(--verdeForte); 
+    background-color: var(--amarelo);  
 }
 
 nav ul{
@@ -106,14 +119,14 @@ nav li{
 fieldset{
     width: 70%;
     margin-left: 10%;
-    border: solid black 1pt;
+    border: 1px solid var(--verdeForte);
     border-radius: 5pt;
     text-align: center;
 }
 
 input[type=text]{
     font-size: 20pt;
-    border: solid black 1px;
+    border: solid 1px var(--cinza);
     border-radius: 5px;
     width: 100px;
     padding-left: 10px;
@@ -234,7 +247,7 @@ input[type=button]{
     position: relative;
     top: 20px;
     text-align: center;
-    border: 2px dashed #8db600;
+    border: 2px dashed var(--cinza);
     height: 250px;
     width: 95%;
 }
@@ -244,7 +257,7 @@ input[type=button]{
     text-align: center;
     align-items: center;
     top:20px;
-    /*border: 1px solid #f6a700;*/
+    /*border: 1px solid var(--laranja);*/
     width: 90%; 
 }
 
@@ -266,12 +279,12 @@ h3{
 
 h4{
     font-size: 14pt;
-    color: #588100;
+    color: var(--verdeForte);
 }
 
 h5{
     font-size: 13pt;
-    color: #f6a700;
+    color: var(--laranja);
 }
 
 header{
@@ -289,7 +302,7 @@ header a img{
 }
 
 header a:link, header a:visited{
-    color: black;
+    color: var(--preto);
 }
 
 #div-main-body-header{
@@ -302,12 +315,12 @@ header a:link, header a:visited{
     justify-content: center;
     align-items: center;
     /* alinha texto: fim*/
-    border: 4px solid ffffff;
+    border: 4px solid #ffffff;
     border-top-left-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: #ffffff;
     opacity: 85%;
-    box-shadow: 10px 10px 5px #000000;
+    box-shadow: 10px 10px 5px var(--preto);
     margin-left: 12%;
 }
 
@@ -317,7 +330,7 @@ header a:link, header a:visited{
 }
 
 .img-instrucoes{
-    border: 1px solid black;
+    border: 1px solid var(--preto);
     border-radius: 5px;
     width: 40%;
     max-width: 40%;
@@ -362,11 +375,11 @@ tr:nth-child(even) {
     /*margin-left: 2%;*/
     width: 95%;
     border-spacing: 0;
-    border:1px solid #588100;
+    border:1px solid var(--verdeMedio);
 }
 
 .tb-resultado th, td{
-    border-bottom: 1px solid #588100;
+    border-bottom: 1px solid var(--verdeMedio);
     font-size: smaller;
 }
 
@@ -385,7 +398,7 @@ tr:nth-child(even) {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: #000000;
+        background-color: var(--preto);
         display: block;
         z-index: 100;
     }
