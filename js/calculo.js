@@ -39,7 +39,7 @@ function validaCampos(){
     return flagContinua;
 } // function
 
-function funcCalcularDados(){
+function calculaDados(){
     // Cria a tabela 
     var arrPlanilhaResultado = []; // Cria um array multidimensional
     let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
@@ -53,7 +53,7 @@ function funcCalcularDados(){
     bitola           = Number(document.getElementById('txtBitola').value);
     larguraPneu      = Number(document.getElementById('txtLarguraPneu').value);
     nColetorCentral   = Number(document.getElementById('txtNumColetorCentral').value);
-    // Inicializa o array
+    // Inicializa o array com zeros
     for(let i=0; i<qtdeColetores; i++){
         arrPlanilhaResultado[i] = []; // Inicializa novas linhas
         for(let j=0; j<(qtdeRepeticoes+8); j++){
@@ -69,7 +69,7 @@ function funcCalcularDados(){
         // Cria o cabeçalho da tabela
         arrPlanilhaResultado[0][0] = "Coletor";
         for (let i = 1; i <= qtdeRepeticoes; i++){
-            arrPlanilhaResultado[0][i] = "Rep "+i;
+            arrPlanilhaResultado[0][i] = "Rep "+i; // Colunas "repetição" (cabeçalho)
         }
         arrPlanilhaResultado[0][qtdeRepeticoes+1] = "Total";
         arrPlanilhaResultado[0][qtdeRepeticoes+2] = "Média";
@@ -279,13 +279,34 @@ function transfereDadosDoCSVparaArray(){
         const reader = new FileReader();
         reader.onload = (e) => {
             const content = e.target.result;
-            console.log(content);
+            x = content;
+            //console.table(x);
         };
         reader.readAsText(file);
     } else {
         alert('Problemas ao ler o CSV');
     }
-}
+    if (deletaDadosArmazenadosLocalmente()){
+        
+    } else {
+        alert('(!) Dados não foram deletados no browser (!)');
+    }// if deleta
+} // function
+
+function deletaDadosArmazenadosLocalmente(){
+    let flag = false; // Inicializa flag de retorno
+    // Deleta (caso exista) os valores armazenados no browser
+    if (localStorage.getItem('tabela')){
+        localStorage.removeItem('tabela');
+    }
+    if (localStorage.getItem('dadosInput')){
+        localStorage.removeItem('dadosInput');
+    }
+    if (localStorage.getItem('tabela') && localStorage.getItem('dadosInput'))
+        return false;
+    else
+        return true;
+} // function
 
 function exibeCamposDeEdicaoComValoresDoCSV(){
     /** */

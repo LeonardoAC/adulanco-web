@@ -19,9 +19,9 @@
                 <p><a href="" class="texto-observacao">O que é um arquivo CSV?</a></p>
             </header>
             <!--*****************************************************************************************-->
-            <div id="div-main-body-upload">
+            <div id="div-main-body-upload" ondrop="" ondragover="">
                 <input type="file" name="file" id="input-arquivo-csv" accept=".csv" />
-                <input type="button" id="btnLerCSV" value="Ler CSV" />
+                <!--input type="button" id="btnLerCSV" value="Ler CSV" /-->
             </div>
             <!--*****************************************************************************************-->
             <div id="div-output-csv"></div>
@@ -39,7 +39,8 @@
     window.addEventListener('load', menuMain);
     window.addEventListener('load', menuFooter);
     window.addEventListener('resize', menuFooter);
-    document.getElementById('btnLerCSV').addEventListener('click', leiaCSV);
+    //document.getElementById('btnLerCSV').addEventListener('click', leiaCSV);
+    document.addEventListener('change', leiaCSV);
 </script>
 <!-- Hotjar Tracking Code for https://www.fatecpompeia.edu.br -->
 <script>
