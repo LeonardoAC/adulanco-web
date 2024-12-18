@@ -118,7 +118,7 @@ nav li{
 
 fieldset{
     width: 70%;
-    margin-left: 10%;
+    margin-left: 13%;
     border: 1px solid var(--verdeForte);
     border-radius: 5pt;
     text-align: center;
@@ -214,6 +214,24 @@ input[type=button]{
 
 #fieldset-entrada-digitacao{
     display: none;
+}
+
+#fieldset-tabela-de-conteudo{
+    /*Altura da caixa*/
+    background-color: #e5e5e5;
+    border: 1px solid var(--preto);
+    height: 50vh;
+    align-content: center;
+    color: var(--preto);
+}
+
+#fieldset-tabela-de-conteudo a:link, #fieldset-tabela-de-conteudo a:visited{
+    color: var(--preto);
+}
+
+#fieldset-tabela-de-conteudo a:hover, #fieldset-tabela-de-conteudo a:active{
+    color: #ffffff;
+    background-color: var(--preto);
 }
 
 .p-fieldset-fonte-pqna{
