@@ -32,7 +32,6 @@ function menuFooter(){
     //objetoFooterDiv.style.top = objetoPaginaAltura+'px';
     // Exibe os elementos
     let objetoFooter = '<div id="div-footer-espacador"><p>Adulanço web</p><p>Versão BETA</p><p>L.A.C</p></div>';
-    objetoFooter += '<!--div id="div-footer-espacador"><img src="assets/logofatec.png" width="80px" title="Feito na Fatec Pompeia" alt="Fatec Pompeia"></div-->';
-    objetoFooter += '<div id="div-footer-espacador"><img src="assets/cc by-nd.png" width="100px" title="Uso sob licença Creative Common CC BY-ND 4.0" alt="creative commons cc by nd"></div>';
+    objetoFooter += '<div id="div-footer-espacador"><img src="assets/cc_by-nd.webp" width="100px" title="Uso sob licença Creative Common CC BY-ND 4.0" alt="creative commons cc by nd"></div>';
     objetoFooterDiv.innerHTML = objetoFooter;
 }

@@ -26,10 +26,11 @@
     --verdeMedio: #588100;
     --verdeClaro: #8db600;
     --verdeSPatrick: #0A7B3E; /*Nao usado*/
-    --laranja: #f6a700;
+    --laranja:  #f6a700; /*#ffcc11;*/
     --amarelo: #fed353;
     --preto: #000000;
     --cinza: grey;
+    --branco: #ffffff;
 }
 
 /*
@@ -83,7 +84,7 @@ a:link, a:visited{
 a:hover, a:active{
     text-decoration: underline;
     color: var(--verdeForte); 
-    background-color: var(--amarelo);  
+    background-color: var(--branco);  
 }
 
 nav ul{
@@ -95,6 +96,7 @@ nav li{
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 40px;
+    font-weight: bold;
 }
 
 #div-main-body ul{
@@ -107,7 +109,7 @@ nav li{
 
 #div-img-adulancoweb{
     position: absolute;
-    background-image: url('../assets/AdulancoWeb-abertura.jpg');
+    background-image: url('../assets/AdulancoWeb-abertura.webp');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -176,7 +178,7 @@ input[type=button]{
 
 #div-fieldset-tratores-exemplo{
     /* adiciona a imagem dos tratores*/
-    background-image: url("../assets/2tratores.png");
+    background-image: url("../assets/2tratores.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -302,7 +304,7 @@ h4{
 
 h5{
     font-size: 13pt;
-    color: var(--laranja);
+    color: var(--preto);
 }
 
 header{

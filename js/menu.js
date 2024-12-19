@@ -24,25 +24,25 @@ function iluminaMenuAtivo(){
     //console.log(buscarStr);
     switch(buscarStr){
         case "index.html": // Index
-            document.getElementById('0').style.border = "1px solid #8db600";
+            document.getElementById('0').style.borderTop = "3px solid var(--laranja)";
             break;
         case "anual.html": // Entrada manual
-            document.getElementById('1').style.border = "1px solid #8db600";
+            document.getElementById('1').style.borderTop = "3px solid var(--laranja)";
             break;
         case "dacsv.html": // Importar CSV
-            document.getElementById('2').style.border = "1px solid #8db600";
+            document.getElementById('2').style.borderTop = "3px solid var(--laranja)";
             break;
         case "sadas.html": // Passadas
-            document.getElementById('3').style.border = "1px solid #8db600";
+            document.getElementById('3').style.borderTop = "3px solid var(--laranja)";
             break;
         case "ltado.html": // Resultados
-            document.getElementById('4').style.border = "1px solid #8db600";
+            document.getElementById('4').style.borderTop = "3px solid var(--laranja)";
             break;
         case "cenca.html": // Licença
-            document.getElementById('5').style.border = "1px solid #8db600";
+            document.getElementById('5').style.borderTop = "3px solid var(--laranja)";
             break;
         case "ucoes.html": // Instruções de uso
-            document.getElementById('6').style.border = "1px solid #8db600";
+            document.getElementById('6').style.borderTop = "3px solid var(--laranja)";
             break;
         default:
             window.location.href = "index.html"; // Se não houve escolha, abre o index (e ilumina)
