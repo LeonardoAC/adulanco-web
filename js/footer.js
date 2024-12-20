@@ -14,19 +14,19 @@
 function menuFooter(){
     // Força o footer a ficar no fim da pagina
     const objetoFooterDiv = document.getElementById('div-main-footer');
-    let objetoPaginaAltura = document.body.offsetHeight; // latura do documento visível
-    let objetoJanelaAltura = window.innerHeight; // altura da janela
+    //let objetoPaginaAltura = document.body.offsetHeight; // latura do documento visível
+    //let objetoJanelaAltura = window.innerHeight; // altura da janela
     //console.log('altura documento: '+objetoPaginaAltura+' | altura janela: '+objetoJanelaAltura);
  
     // If the content is smaller than the window, push the footer down
- if (objetoPaginaAltura < objetoJanelaAltura) {
-    objetoFooterDiv.style.position = 'fixed';
+ /*if (objetoPaginaAltura < objetoJanelaAltura) {
+    //objetoFooterDiv.style.position = 'fixed';
     objetoFooterDiv.style.bottom = '0';
     objetoFooterDiv.style.left = '0';
     objetoFooterDiv.style.width = '100%';
-} else {
-    objetoFooterDiv.style.position = 'relative';
-}
+} //else {
+    //objetoFooterDiv.style.position = 'relative';
+//}*/
 
 
     //objetoFooterDiv.style.top = objetoPaginaAltura+'px';

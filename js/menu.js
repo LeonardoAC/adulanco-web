@@ -12,7 +12,7 @@
  */
 
 function menuMain(){
-    let objetoMenu = '<ul><li><a id="0" href="index.html">HOME</a></li><li><a id="1" href="entradamanual.html">ENTRADA MANUAL</a></li><li><a id="2" href="entradacsv.html">IMPORTAR CSV</a></li><li><a id="3" href="passadas.html">PASSADAS</a></li><li><a id="4" href="resultado.html">RESULTADOS</a></li><li><a id="5" href="licenca.html">LICENÇA</a></li><li><a id="6" href="instrucoes.html">INSTRUÇÕES DE USO</a></li></ul>';
+    let objetoMenu = '<ul><a id="0" href="index.html"><li>HOME</li></a><a id="1" href="entradamanual.html"><li>ENTRADA MANUAL</li></a><a id="2" href="entradacsv.html"><li>IMPORTAR CSV</li></a><a id="3" href="passadas.html"><li>PASSADAS</li></a><a id="4" href="resultado.html"><li>RESULTADOS</li></a><a id="5" href="licenca.html"><li>LICENÇA</li></a><a id="6" href="instrucoes.html"><li>INSTRUÇÕES DE USO</li></a></ul>';
     document.getElementById('div-main-nav').innerHTML = objetoMenu;
     iluminaMenuAtivo();
 } // function

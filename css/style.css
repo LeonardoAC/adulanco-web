@@ -47,10 +47,23 @@ body{
     height: 100%;
 }
 
-nav, footer /*navbar*/{
-    display: flex;
-    justify-content: space-between;
+nav{
+    /*display: flex;
+    justify-content: space-between;*/
     align-items: center;
+}
+
+footer{
+    position: relative;
+    /*bottom: 0px;*/
+    width: 100%;
+    align-items: center;
+}
+
+#div-main{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
 }
 
 #div-main-nav{
@@ -66,9 +79,9 @@ nav, footer /*navbar*/{
 }
 
 #div-main-footer{
-    position: absolute;
+    position: relative;
     left: 0;
-    bottom: 0;
+    /*bottom: 0;*/
     width: 100%;
     height: 50px;
     border-top: solid 4px var(--verdeForte);
@@ -95,7 +108,8 @@ nav ul{
 nav li{
     padding-top: 10px;
     padding-left: 20px;
-    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-bottom: 10px;
     font-weight: bold;
 }
 
@@ -108,12 +122,12 @@ nav li{
 }
 
 #div-img-adulancoweb{
-    position: absolute;
+    position: relative;
     background-image: url('../assets/AdulancoWeb-abertura.webp');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 600px;
+    height: 100vh;
     z-index: 0;
     opacity: 50%;
 }
@@ -142,8 +156,7 @@ input[type=button]{
 #div-main-body{
     position: relative;
     top: 30px;
-    height: 120%;
-    margin-left: 5%;
+    height: 100%;
 }
 
 .div-main-body-fieldset-envelope{
@@ -232,7 +245,7 @@ input[type=button]{
 }
 
 #fieldset-tabela-de-conteudo a:hover, #fieldset-tabela-de-conteudo a:active{
-    color: #ffffff;
+    color: var(--branco);
     background-color: var(--preto);
 }
 
@@ -266,10 +279,11 @@ input[type=button]{
     /* Centralizam os botões de upload*/
     position: relative;
     top: 20px;
+    margin-left: 5%;
     text-align: center;
     border: 2px dashed var(--cinza);
     height: 250px;
-    width: 95%;
+    width: 90%;
 }
 
 #div-output-csv{
@@ -328,21 +342,21 @@ header a:link, header a:visited{
 
 #div-main-body-header{
     position: absolute;
-    top: 10px;
-    height: 500px;
+    top: -700px;
+    height: 60vh;
     width: 70%;
+    margin-left: 15%;
     /* alinha texto no centro e meio: inicio*/
     display: flex;
     justify-content: center;
     align-items: center;
     /* alinha texto: fim*/
-    border: 4px solid #ffffff;
+    border: 4px solid var(--branco);
     border-top-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    background-color: #ffffff;
+    background-color: var(--branco);
     opacity: 85%;
     box-shadow: 10px 10px 5px var(--preto);
-    margin-left: 12%;
 }
 
 .img-centro-grande{
@@ -425,7 +439,7 @@ tr:nth-child(even) {
     }
 
     h1{
-        color: #ffffff;
+        color: var(--branco);
         font-size: 40px;
         text-align: center;
         align-items: center;
