@@ -129,7 +129,7 @@ nav li{
     width: 100%;
     height: 100vh;
     z-index: 0;
-    opacity: 50%;
+    opacity: 60%;
 }
 
 fieldset{
@@ -190,12 +190,27 @@ input[type=button]{
 }
 
 #div-fieldset-tratores-exemplo{
-    /* adiciona a imagem dos tratores*/
+    /* Exibe/oculta a imagem do trator*/
+    position: absolute;
+    top: 50px;
+    width: 33%;
+    margin-left: 30%;
+    border: 5px solid var(--verdeForte);
+    border-radius: 15px;
+    background-color: var(--branco);
     background-image: url("../assets/2tratores.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 81vh;
+    height: 71vh;
+    display: none;
+    z-index: 100;
+}
+
+#div-fieldset-tratores-exemplo ul{
+    background-color: var(--verdeForte);
+    text-align: center;
+    height: 40px;
 }
 
 #div-fieldset-material{
@@ -404,16 +419,16 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
-.tb-resultado{
+.tb-output{
     position: relative;
     text-align: center;
-    /*margin-left: 2%;*/
-    width: 95%;
+    margin-left: 2%;
+    width: 96%;
     border-spacing: 0;
     border:1px solid var(--verdeMedio);
 }
 
-.tb-resultado th, td{
+.tb-output th, td{
     border-bottom: 1px solid var(--verdeMedio);
     font-size: smaller;
 }

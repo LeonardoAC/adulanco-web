@@ -129,7 +129,7 @@ function exibePlanilhaResultado(){
     */
     if (arrPlanilhaResultado != undefined){
         // TABELA
-        outptHTML = '<table id="tb-resultado" class="tb-resultado">';
+        outptHTML = '<table id="tb-resultado" class="tb-output">';
         outptHTML += '<tr>';
         outptHTML += '    <th>Coletor</th>';
         // CABEÇALHO
@@ -249,7 +249,7 @@ function mostraCSV(content){
     const rows = content.split('\n');
     const delimitador = ';';
     let table = '<div id="div-output-csv">';
-    table += '<table id="tb-resultado" class="tb-resultado"><tr>';
+    table += '<table id="tb-resultado" class="tb-output"><tr>';
 
     // Build table headers from the first row
     const headers = rows[0].split(delimitador);
@@ -323,7 +323,7 @@ function criaCamposDinamicosParaUserDigitarDados(){
         qtdeColetores    = Number(document.getElementById('txtQtdeColetores').value);
         qtdeRepeticoes   = Number(document.getElementById('txtQtdeRepeticoes').value);
         let objetoTabela = '';
-        objetoTabela = '<table id="tb-digitar-dados" class="tb-resultado"><tr><th>Coletores</th>';
+        objetoTabela = '<table id="tb-digitar-dados" class="tb-output"><tr><th>Coletores</th>';
         for(let i=1; i<=qtdeRepeticoes; i++){
             // Forma o cabeçalho da tabela: Coletor, Rep.1, Rep.2...
             objetoTabela += '<th>Repet. '+i+'</th>';

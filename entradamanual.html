@@ -30,13 +30,9 @@
         <div id="div-main-body">
             <form id="form-entrada-manual">
             <ul>
-                <li>
-                    <fieldset id="fieldset-trator">
-                        <legend>Exemplo (par/ímpar)</legend>
-                        <div id="div-fieldset-tratores-exemplo">
-                        </div>
-                    </fieldset>
-                </li>
+                <div id="div-fieldset-tratores-exemplo">
+                    <ul><li><input type="button" value="Fechar imagem" onclick="ajuda('oculta');"></li></ul>
+                </div>
                 <li>
                     <fieldset>
                         <legend>Material</legend>
@@ -56,15 +52,17 @@
                         <div id="div-fieldset-sobreposicao" class="div-main-body-fieldset-envelope">
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtBitola">Bitola</label><p class="p-fieldset-fonte-pqna">(largura/distância entre coletores)</p></div>
                             <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="" > cm</div>
-                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtLarguraPneu">Largura do Pneu</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtLarguraPneu" maxlength="3" value="" > mm</div>
+                            <!--div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtLarguraPneu">Largura do Pneu</label></div-->
+                            <!--div id="div-fieldset-input" class="div-main-body-fieldset-right"--><input type="hidden" id="txtLarguraPneu" maxlength="3" value="380" > <!--mm</div-->
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtNumColetorCentral">Nº do coletor central</label></div>
                             <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="" ></div>
-                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="radioParImpar">Coletores centrais</label><p class="texto-observacao">(?) Clique e veja o exemplo</p></div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="radioParImpar">Coletores centrais</label></div>
                             <div id="div-fieldset-input" class="div-main-body-fieldset-right">
                                 <input type="radio" id="par" name="radioParImpar" value="par" checked><label for="par"> Par</label><br>
                                 <input type="radio" id="impar" name="radioParImpar" value="impar"><label for="impar"> Impar</label>
                             </div>
+                            <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="">Exemplo de par/ímpar</label></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="button" id="link-ajuda" value="Ver imagem" ></div>
                         </div>
                     </fieldset>
                 </li>
@@ -80,10 +78,10 @@
                     <fieldset id="fieldset-entrada-digitacao">
                         <legend>Digite abaixo </legend>
                         <!--form id="form-entrada-digitacao"-->
-                            <div id="div-fieldset-entrada-digitacao"></div>
+                            <div id="div-fieldset-entrada-digitacao"><!-- campos para digitar dados aparece aqui --></div>
                             <br>
                             <input type="button" id="btnCalcular" value="Calcular dados">
-                            <input type="reset" id="btnLimparTabela" value="Limpar campos da tabela">
+                            <input type="reset" id="btnLimparTabela" value="Limpar todos os campos">
                             <input type="button" id="btnDeletarTabela" value="Deletar tabela" disabled>
                             <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilitar botão</label>
                             <br>
@@ -97,7 +95,6 @@
                 </li>
             </ul>
             </form>
-            
         </div>
         <div id="div-espaco-para-footer"></div>
     </div>
@@ -117,16 +114,15 @@
     document.getElementById('btnDeletarTabela').addEventListener('click', ()=>{ removeElementoFilhoHTML('div-fieldset-entrada-digitacao','tb-digitar-dados'); });
     document.getElementById('cbHabilitaDelete').addEventListener('change', habilitaDesabilitaBotaoDeletarTabela);
     document.getElementById('btnLimparTabela').addEventListener('click', habilitaDesabilitaBotaoDeletarTabela);
+    document.getElementById('link-ajuda').addEventListener('click', ()=>{ajuda('exibe');});
 </script>
-<!-- Hotjar Tracking Code for https://www.fatecpompeia.edu.br -->
-<script defer>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3929589,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+<script>
+    function ajuda(param){
+        if (param == 'exibe'){
+            document.getElementById('div-fieldset-tratores-exemplo').style.display = 'block';
+        } else if (param == 'oculta'){
+            document.getElementById('div-fieldset-tratores-exemplo').style.display = 'none';
+        }
+    } // function
 </script>
 </html>
