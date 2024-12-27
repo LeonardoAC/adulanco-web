@@ -18,7 +18,7 @@ function menuMain(){
 } // function
 
 function iluminaMenuAtivo(){
-    /* Deixa o item de menu ativo iluminado. Isso dá uma orientação ao user */
+    /* Deixa o item do menu ativo iluminado. Isso entrega uma orientação ao user, de qual página está navegando */
     let url = window.location.pathname;
     let buscarStr = url.substring(url.length-10);
     //console.log(buscarStr);

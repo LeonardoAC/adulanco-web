@@ -11,6 +11,7 @@
 */
 
 *{
+    top: 0;
     margin: 0;
     left: 0;
     padding: 0;
@@ -24,11 +25,11 @@
     --verdeForte: #0A7B3E;
     --verdeMedio: #588100;
     --verdeClaro: #8db600;
-    --verdeSPatrick: #0A7B3E; /*Nao usado*/
     --laranja:  #f6a700; /*#ffcc11;*/
     --amarelo: #fed353;
     --preto: #000000;
     --cinza: grey;
+    --cinzaClaro: #f6f6f6;
     --branco: #ffffff;
 }
 
@@ -41,8 +42,6 @@ html{
 }
 
 body{
-    /*background: rgb(88,129,0);
-    background: linear-gradient(180deg, rgba(88,129,0,1) 0%, rgba(141,182,0,1) 62%, rgba(254,211,83,1) 100%);*/
     color: var(--verdeForte);
     height: 100%;
 }
@@ -57,7 +56,7 @@ footer{
     position: relative;
     /*bottom: 0px;*/
     width: 100%;
-    align-items: center;
+    text-align: right;
 }
 
 #div-main{
@@ -83,10 +82,10 @@ footer{
     left: 0;
     /*bottom: 0;*/
     width: 100%;
-    height: 50px;
+    height: 80px;
     border-top: solid 4px var(--verdeForte);
     background-color: var(--laranja);
-    padding: 10px;
+    padding-top: 20px;
 }
 
 a:link, a:visited{
@@ -134,9 +133,9 @@ nav li{
 
 fieldset{
     width: 70%;
-    margin-left: 13%;
+    margin-left: 15%;
     border: 1px solid var(--verdeForte);
-    border-radius: 5pt;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -248,8 +247,8 @@ input[type=button]{
 
 #fieldset-tabela-de-conteudo{
     /*Altura da caixa*/
-    background-color: #e5e5e5;
-    border: 1px solid var(--preto);
+    background-color: var(--cinzaClaro);
+    border: 1px solid var(--cinzaClaro);
     height: 50vh;
     align-content: center;
     color: var(--preto);
@@ -264,10 +263,6 @@ input[type=button]{
     background-color: var(--preto);
 }
 
-.p-fieldset-fonte-pqna{
-    font-size: x-small;
-}
-
 #div-main-footer p{
     font-size: 10pt;
 }
@@ -279,9 +274,10 @@ input[type=button]{
 
 #div-footer-espacador{
     position: relative;
-    vertical-align: top;
+    vertical-align:middle;
     display: inline-block;
-    width: 100px;
+    width: 150px;
+    text-align: center;
 }
 
 #div-espaco-para-footer{
@@ -291,23 +287,17 @@ input[type=button]{
 }
 
 #div-main-body-upload{
-    /* Centralizam os botões de upload*/
+    /* Área quadriculada onde arrasta e solta o arquivo */
     position: relative;
     top: 20px;
-    margin-left: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
     text-align: center;
     border: 2px dashed var(--cinza);
+    border-radius: 10px;
+    background-color: var(--cinzaClaro);
     height: 250px;
-    width: 90%;
-}
-
-#div-output-csv{
-    position: relative;
-    text-align: center;
-    align-items: center;
-    top:20px;
-    /*border: 1px solid var(--laranja);*/
-    width: 90%; 
+    width: 98%;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -412,23 +402,35 @@ table{
 .div-resultado-tabela{
     position: relative;
     width: 95%;
+    border: 1px dotted plum;
 }
 
 tr:nth-child(even) {
     /* Tabela: linhas zebradas*/
-    background-color: #f2f2f2;
-  }
+    background-color: var(--cinzaClaro);
+}
 
-.tb-output{
+#div-output-csv{
+    /* Div onde será exibida a tabela de resultados */
     position: relative;
     text-align: center;
-    margin-left: 2%;
-    width: 96%;
+    top: 20px;
+    /*border: 3px solid var(--laranja);*/
+}
+
+.tb-output{
+    /* Tabela de resultados ou saída CSV*/
+    position: relative;
+    text-align: center;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 98%;
     border-spacing: 0;
-    border:1px solid var(--verdeMedio);
+    border:2px solid var(--verdeMedio);
 }
 
 .tb-output th, td{
+    /* Desenha as linhas da tabela */
     border-bottom: 1px solid var(--verdeMedio);
     font-size: smaller;
 }

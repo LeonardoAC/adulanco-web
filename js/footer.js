@@ -18,20 +18,10 @@ function menuFooter(){
     //let objetoJanelaAltura = window.innerHeight; // altura da janela
     //console.log('altura documento: '+objetoPaginaAltura+' | altura janela: '+objetoJanelaAltura);
  
-    // If the content is smaller than the window, push the footer down
- /*if (objetoPaginaAltura < objetoJanelaAltura) {
-    //objetoFooterDiv.style.position = 'fixed';
-    objetoFooterDiv.style.bottom = '0';
-    objetoFooterDiv.style.left = '0';
-    objetoFooterDiv.style.width = '100%';
-} //else {
-    //objetoFooterDiv.style.position = 'relative';
-//}*/
-
-
     //objetoFooterDiv.style.top = objetoPaginaAltura+'px';
     // Exibe os elementos
-    let objetoFooter = '<div id="div-footer-espacador"><p>Adulanço web</p><p>Versão BETA</p><p>L.A.C</p></div>';
-    objetoFooter += '<div id="div-footer-espacador"><img src="assets/cc_by-nd.webp" width="100px" title="Uso sob licença Creative Common CC BY-ND 4.0" alt="creative commons cc by nd"></div>';
+    let objetoFooter = '<div id="div-footer-espacador"><img src="assets/cc_by-nd.webp" width="100px" title="Uso sob licença Creative Common CC BY-ND 4.0" alt="creative commons cc by nd"></div>';
+    objetoFooter += '<div id="div-footer-espacador"><p>Adulanço web</p><p>Versão BETA</p><p>L.A.C</p></div>';
+    
     objetoFooterDiv.innerHTML = objetoFooter;
 }
