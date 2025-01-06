@@ -264,7 +264,8 @@ input[type=button]{
 }
 
 #div-main-footer p{
-    font-size: 10pt;
+    font-size: 12pt;
+    font-weight: bold;
 }
 
 .texto-observacao{
@@ -293,7 +294,7 @@ input[type=button]{
     margin-left: 1%;
     margin-right: 1%;
     text-align: center;
-    border: 2px dashed var(--cinza);
+    border: 3px dashed var(--cinza);
     border-radius: 10px;
     background-color: var(--cinzaClaro);
     height: 250px;
