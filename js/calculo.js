@@ -7,6 +7,7 @@
  * Released under CC BY-NC 4.0 License
  * @endpreserve
  */
+
 function validaCampos(){
     /* Verifica se há valores digitados nos campos e se atendem aos tipos requeridos */
     const elementoInput = document.querySelectorAll('#form-entrada-manual input[type="text"]');
@@ -40,7 +41,6 @@ function validaCampos(){
 } // function
 
 function calculaDados(){
-    // Cria a tabela 
     var arrPlanilhaResultado = []; // Cria um array multidimensional
     let qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral;
     let bitola;
@@ -104,12 +104,17 @@ function calculaDados(){
             arrPlanilhaResultado[i][indexJ+6] = 'Cont. '+i; // Contínuo
         }; //for i
         //console.table(arrPlanilhaResultado);
-         // Armazena o array ,localmente, para ser usado por outras páginas
-        localStorage.setItem('tabela', JSON.stringify(arrPlanilhaResultado));
-        let arrDadosInput = [qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral, bitola, larguraPneu];
-        localStorage.setItem('dadosInput', JSON.stringify(arrDadosInput));
-        // Redireciona para a página de resultado e gráficos
-        window.location.href = "resultado.html";
+        if (deletaDadosArmazenadosLocalmente){
+            // Armazena o array ,localmente, para ser usado por outras páginas
+            localStorage.setItem('tabela', JSON.stringify(arrPlanilhaResultado));
+            let arrDadosInput = [qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral, bitola, larguraPneu];
+            localStorage.setItem('dadosInput', JSON.stringify(arrDadosInput));
+            // Redireciona para a página de resultado e gráficos
+            window.location.href = "resultado.html";
+        }else{
+            alert('FALHA: Dados armazenados anteriormente no browser não foram removidos com sucesso! Limpe o CACHE do navegador e refaça o processo.')
+        }
+         
     } // if
 } //function   
 
@@ -306,9 +311,9 @@ function deletaDadosArmazenadosLocalmente(){
         localStorage.removeItem('dadosInput');
     }
     if (localStorage.getItem('tabela') && localStorage.getItem('dadosInput'))
-        return false;
+        return false; // Nao removeu 
     else
-        return true;
+        return true; // Dados removidos
 } // function
 
 function exibeCamposDeEdicaoComValoresDoCSV(){
@@ -373,7 +378,7 @@ function removeElementoFilhoHTML(idElementoPai, idElementoFilho){
     document.getElementById('txtNumColetorCentral').value = "";
 } // function
 
-function calculaCV(){
+function calculaCoeficienteVariacao(){
     /** 
      * Calcula o Coeficiente de Variação (CV) entre o "peso (grama)" e "larg. aplicação (metros)"
      * Fórmula: CV = (s/x)*100
@@ -398,12 +403,13 @@ function calculaDesvioPadrao(){
 function calculaVariancia(){
     /**
      * Calcula a Variância
-     * Fórmula: (Sigma i=1 até n (elemento(i) - média)^2 ) / n
+     * Fórmula: (Sigma i=1 até n (peso(i) - média)^2 ) / n
      * Onde:
      * Sigma é a somatória de i até n
-     * n = número total de coletores
-     * média = 
+     * n = Qtde de coletores
+     * média = ((soma de todas as repetições / qtde repeticoes) / qtde coletores)
      */
-
+    if (localStorage.getItem('tabela') && localStorage.getItem('')){
+        // Verifica se há dados armazenados previamente no browser
+    }
 }
-

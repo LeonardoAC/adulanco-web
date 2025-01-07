@@ -1,10 +1,7 @@
 /**
      @preserve
     * Leonardo Alves Carrilho
-    * Novembro de 2024
-    * Paleta de cores:
-    * #255000, #588100, #8db600, #f6a700, #fed353 -adaptado
-    * https://paletadecolores.online/static/bed120f397d3c36ac1587ce2de38faa6/d8ea1/color_verde_manzana_y_mostaza.png
+    * 2024, Nov.
     * Leia a licença de uso em: https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br
     * Released under CC BY-NC 4.0 License
     @endpreserve
@@ -270,7 +267,7 @@ input[type=button]{
 
 .texto-observacao{
     /* Texto para entrelinhas. Texto menor */
-    font-size: x-small;
+    font-size: small;
 }
 
 #div-footer-espacador{
