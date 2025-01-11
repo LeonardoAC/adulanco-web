@@ -38,11 +38,11 @@
                         <legend>Material</legend>
                         <div id="div-fieldset-material" class="div-main-body-fieldset-envelope">
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeColetores">Qtde coletores</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeColetores" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeColetores" maxlength="2" value="5" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdeRepeticoes">Qtde repetições</label><p class="p-fieldset-fonte-pqna">(máx. 10 rep.)</p></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeRepeticoes" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdeRepeticoes" maxlength="2" value="1" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtQtdePassadas">Qtde passadas</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdePassadas" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtQtdePassadas" maxlength="2" value="1" ></div>
                         </div>
                     </fieldset>
                 </li>
@@ -51,11 +51,11 @@
                         <legend>Sobreposição</legend>
                         <div id="div-fieldset-sobreposicao" class="div-main-body-fieldset-envelope">
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtBitola">Bitola</label><p class="p-fieldset-fonte-pqna">(largura/distância entre coletores)</p></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="" > cm</div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtBitola" maxlength="2" value="50" > cm</div>
                             <!--div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtLarguraPneu">Largura do Pneu</label></div-->
                             <!--div id="div-fieldset-input" class="div-main-body-fieldset-right"--><input type="hidden" id="txtLarguraPneu" maxlength="3" value="380" > <!--mm</div-->
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="txtNumColetorCentral">Nº do coletor central</label></div>
-                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="" ></div>
+                            <div id="div-fieldset-input" class="div-main-body-fieldset-right"><input type="text" id="txtNumColetorCentral" maxlength="2" value="2" ></div>
                             <div id="div-fieldset-label" class="div-main-body-fieldset-left"><label for="radioParImpar">Coletores centrais</label></div>
                             <div id="div-fieldset-input" class="div-main-body-fieldset-right">
                                 <input type="radio" id="par" name="radioParImpar" value="par" checked><label for="par"> Par</label><br>
@@ -81,14 +81,14 @@
                             <div id="div-fieldset-entrada-digitacao"><!-- campos para digitar dados aparece aqui --></div>
                             <br>
                             <input type="button" id="btnCalcular" value="Calcular dados">
-                            <input type="reset" id="btnLimparTabela" value="Limpar todos os campos">
-                            <input type="button" id="btnDeletarTabela" value="Deletar tabela" disabled>
-                            <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilitar botão</label>
+                            <input type="reset" id="btnLimparTabela" value="Limpar campos">
+                            <input type="button" id="btnDeletarTabela" value="Recomeçar" disabled>
+                            <input type="checkbox" id="cbHabilitaDelete" /><label for="cbHabilitaDelete" class="p-fieldset-fonte-pqna"> Habilitar "Recomeçar"</label>
                             <br>
                             <ul>
                                 <li class="texto-observacao">*Calcular dados: Gera o resultado e gráficos.</li>
                                 <li class="texto-observacao">*Limpar campos: Esvazia todos os campos da tabela acima.</li>
-                                <li class="texto-observacao">*Para deletar toda a tabela, selecione o item "Habilitar botão". Após, clique no botão "Deletar tabela".</li>
+                                <li class="texto-observacao">Para recomeçar, selecione o item "Habilitar 'Recomeçar'". Após, clique no botão.</li>
                             </ul>
                         <!--/form-->
                     </fieldset>

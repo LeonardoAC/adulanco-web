@@ -7,7 +7,6 @@
  * Released under CC BY-NC 4.0 License
  * @endpreserve
  */
-
 function validaCampos(){
     /* Verifica se há valores digitados nos campos e se atendem aos tipos requeridos */
     const elementoInput = document.querySelectorAll('#form-entrada-manual input[type="text"]');
@@ -60,29 +59,30 @@ function calculaDados(){
             arrPlanilhaResultado[i][j] = 0; // Preenche com zeros
         } // j
     } // i
-    //console.table(arrPlanilhaResultado);
 
     // Verifica se os valores informados nos campos são válidos
     if (validaCampos()){
         // Alimenta o array multidimensional
         let total, indexJ;
-        // Cria o cabeçalho da tabela
+        // DADOS DO CABEÇALHO
         arrPlanilhaResultado[0][0] = "Coletor";
         for (let i = 1; i <= qtdeRepeticoes; i++){
             arrPlanilhaResultado[0][i] = "Rep "+i; // Colunas "repetição" (cabeçalho)
         }
         arrPlanilhaResultado[0][qtdeRepeticoes+1] = "Total";
         arrPlanilhaResultado[0][qtdeRepeticoes+2] = "Média";
-        //arrPlanilhaResultado[0][qtdeRepeticoes+3] = "Peso";
         arrPlanilhaResultado[0][qtdeRepeticoes+3] = "Largura aplicação";
         arrPlanilhaResultado[0][qtdeRepeticoes+4] = "Alternado direito";
         arrPlanilhaResultado[0][qtdeRepeticoes+5] = "Alternado esquerdo";
         arrPlanilhaResultado[0][qtdeRepeticoes+6] = "Contínuo";
-        // Valores da tabela
+        arrPlanilhaResultado[0][qtdeRepeticoes+7] = "Vari";
+        arrPlanilhaResultado[0][qtdeRepeticoes+8] = "DP";
+        arrPlanilhaResultado[0][qtdeRepeticoes+9] = "CV";
+        // DADOS DA TABELA
         for (let i = 1; i <= qtdeColetores; i++){
             indexJ  = 0;
             total   = 0;
-            // Cria uma linha para cada coletor (qtde) informado
+            // Cria uma linha para cada coletor (ou qtde) informado
             arrPlanilhaResultado[i] = []; // Inicializa nova linha no array
             arrPlanilhaResultado[i][0] = 'Col. '+i; // Recebe a string com o contador (i)
             // Pega os dados digitados pelo user
@@ -96,12 +96,19 @@ function calculaDados(){
                 Pas1 = ColC - Round(0.1 + ((bitola + 2 * larguraPneu ) / 2)) + 1
                 Pas2 = ColC + Number((bitola + 2 * larguraPneu) / 2)            
             */
-            arrPlanilhaResultado[i][indexJ+1] = Number(total).toFixed(3); // Total
-            arrPlanilhaResultado[i][indexJ+2] = Number(total/qtdeRepeticoes).toFixed(3); // Média
-            arrPlanilhaResultado[i][indexJ+3] = Number((bitola*i)/100).toFixed(2); // Bitola - largura da aplicação
-            arrPlanilhaResultado[i][indexJ+4] = 'AD '+i; // Alternado direito
-            arrPlanilhaResultado[i][indexJ+5] = 'AE '+i; // Alternado esquerdo
+            arrPlanilhaResultado[i][indexJ+1] = Number(total).toFixed(3);                   // Total
+            arrPlanilhaResultado[i][indexJ+2] = Number(total/qtdeRepeticoes).toFixed(3);    // Média
+            arrPlanilhaResultado[i][indexJ+3] = Number((bitola*i)/100).toFixed(2);          // Bitola - largura da aplicação
+            arrPlanilhaResultado[i][indexJ+4] = 'AD '+i;    // Alternado direito
+            arrPlanilhaResultado[i][indexJ+5] = 'AE '+i;    // Alternado esquerdo
             arrPlanilhaResultado[i][indexJ+6] = 'Cont. '+i; // Contínuo
+            /* 
+            Estatística - É necessário ter toda a tabela carregada para conseguir fazer os cálculos abaixo.
+            Serão inicializados com zeros. Futuramente as respectivas funções vão sobrescrever o valor.
+            */
+            arrPlanilhaResultado[i][indexJ+7] = 0;  // Variancia
+            arrPlanilhaResultado[i][indexJ+8] = 0;  // DP
+            arrPlanilhaResultado[i][indexJ+9] = 0;  // CV
         }; //for i
         //console.table(arrPlanilhaResultado);
         if (deletaDadosArmazenadosLocalmente){
@@ -109,12 +116,12 @@ function calculaDados(){
             localStorage.setItem('tabela', JSON.stringify(arrPlanilhaResultado));
             let arrDadosInput = [qtdeColetores, qtdeRepeticoes, qtdePassadas, coletorCentral, bitola, larguraPneu];
             localStorage.setItem('dadosInput', JSON.stringify(arrDadosInput));
+            calculaVariancia();
             // Redireciona para a página de resultado e gráficos
-            window.location.href = "resultado.html";
+            //window.location.href = "resultado.html";
         }else{
             alert('FALHA: Dados armazenados anteriormente no browser não foram removidos com sucesso! Limpe o CACHE do navegador e refaça o processo.')
         }
-         
     } // if
 } //function   
 
@@ -122,8 +129,9 @@ function exibePlanilhaResultado(){
     // Exibe a planilha de resultado em HTML
     // recupera os dados do array
     const arrPlanilhaResultado = JSON.parse(localStorage.getItem('tabela'));
-    console.table(arrPlanilhaResultado);
+    //console.table(arrPlanilhaResultado);
     const arrDadosInput = JSON.parse(localStorage.getItem('dadosInput'));
+    //console.table(arrDadosInput);
     /*  Valores do array:
         arrDadosInput[0] => Quantidade de coletores;
         arrDadosInput[1] => Quantidade de repetições;
@@ -146,6 +154,9 @@ function exibePlanilhaResultado(){
         outptHTML += '    <th>Alternado direito</th>';
         outptHTML += '    <th>Alternado esquerdo</th>';
         outptHTML += '    <th>Contínuo</th>';
+        outptHTML += '    <th>Vari</th>';
+        outptHTML += '    <th>DP</th>';
+        outptHTML += '    <th>CV</th>';
         outptHTML += '</tr>';
         // LINHAS
         for (let i = 1; i <= arrDadosInput[0]; i++){ //'qtdeColetores'
@@ -162,6 +173,9 @@ function exibePlanilhaResultado(){
             outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+4]+'</td>'; // Alternado direito
             outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+5]+'</td>'; // Alternado esquerdo
             outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+6]+'</td>'; // Contínuo
+            outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+7]+'</td>'; // Variancia
+            outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+8]+'</td>'; // Desvio Padrão (DP)
+            outptHTML += '  <td>'+arrPlanilhaResultado[i][arrDadosInput[1]+9]+'</td>'; // Coeficiente de Variação (CV)
         }; //for i
         outptHTML += '  </tr>';
         outptHTML += '</table>';
@@ -361,7 +375,7 @@ function habilitaDesabilitaBotaoDeletarTabela(){
         objetoBtn.setAttribute('disabled', true); // desabilita o botao delete
 }   // function
 
-function removeElementoFilhoHTML(idElementoPai, idElementoFilho){
+function removeElementoFilhoHTML(idElementoPai){
     /** Remove a tabela de digitar dados */
     //console.log(document.getElementById(idElementoPai)); 
     //console.log(document.getElementById(idElementoFilho)); 
@@ -397,7 +411,19 @@ function calculaDesvioPadrao(){
      * Sqrt é a raiz quadrada
      *  Variância retornará de outra função
      */
-
+    var arrDesvioPadrao = [];
+    if (localStorage.getItem('variancia')){
+        const arrVariancia = JSON.parse(localStorage.getItem('variancia'));
+        for(let i=0; i < arrVariancia.length; i++){
+            arrDesvioPadrao[i] = []; // cria uma nova posicao vazia
+            arrDesvioPadrao[i] = Math.sqrt(arrVariancia[i]).toFixed(2);
+            console.log('DP: ', arrDesvioPadrao[i]);
+        }// for i
+        localStorage.setItem('DP', JSON.stringify(arrDesvioPadrao));
+        calculaCoeficienteVariacao();
+    }else{
+        alert('FALHA: Dados da variância não encontrados. Impossível continuar!');
+    }
 }
 
 function calculaVariancia(){
@@ -406,10 +432,48 @@ function calculaVariancia(){
      * Fórmula: (Sigma i=1 até n (peso(i) - média)^2 ) / n
      * Onde:
      * Sigma é a somatória de i até n
-     * n = Qtde de coletores
+     * n = Qtde total de coletores
      * média = ((soma de todas as repetições / qtde repeticoes) / qtde coletores)
      */
-    if (localStorage.getItem('tabela') && localStorage.getItem('')){
-        // Verifica se há dados armazenados previamente no browser
-    }
-}
+    let media = 0;
+    let soma = 0;
+    var arrVariancia = [];
+    if (localStorage.getItem('tabela') && localStorage.getItem('dadosInput')){
+        // Verifica se há dados armazenados previamente no browser e recupera-os.
+        const arrPlanilhaResultado = JSON.parse(localStorage.getItem('tabela'));
+        const arrDadosInput = JSON.parse(localStorage.getItem('dadosInput'));
+        /*
+        * Média
+        */
+        for(let col=3; col < Number(arrDadosInput[1]+3); col++){ 
+            if (arrPlanilhaResultado[0][col] == 'Média'){
+                for(let linha=1; linha <= arrDadosInput[0]; linha++){
+                    soma += Number(arrPlanilhaResultado[linha][col]);
+                } // linha
+            } // if
+        }// col
+        media = Number(soma / arrDadosInput[0]).toFixed(2);
+        //console.log('Média total=>'+media);
+        /**
+         * Variância linha-por-linha 
+         */
+        for(let col=3; col < Number(arrDadosInput[1]+3); col++){ 
+            if (arrPlanilhaResultado[0][col] == 'Média'){
+                let index = 0;
+                for(let linha=1; linha <= arrDadosInput[0]; linha++){
+                    // Variancia = ( (peso(i) - media)^2 / qtde_total_coletores )
+                    //console.log('Peso(i)', arrPlanilhaResultado[linha][col]);
+                    arrVariancia[index] = []; // Inicializa nova linha no array
+                    arrVariancia[index] = Number( (arrPlanilhaResultado[linha][col] - media)**2 / arrDadosInput[0] ).toFixed(2);
+                    //console.log('arrVariancia ['+linha+']: '+arrVariancia[index]);
+                    index +=1;
+                } // linha
+            } // if
+        }// col
+        // Armazena so dados no browser
+        localStorage.setItem('variancia', JSON.stringify(arrVariancia));
+        calculaDesvioPadrao();
+    }else{
+        alert('FALHA: Tabela de estatísticas não concluída!');
+    } //if   
+}// function
