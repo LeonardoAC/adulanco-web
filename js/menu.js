@@ -12,8 +12,8 @@
  */
 
 function menuMain(){
-    let objetoMenu = '<ul><a id="0" href="index.html"><li>HOME</li></a><a id="1" href="entradamanual.html"><li>ENTRADA MANUAL</li></a><a id="2" href="entradacsv.html"><li>IMPORTAR CSV</li></a><a id="3" href="passadas.html"><li>PASSADAS</li></a><a id="4" href="resultado.html"><li>RESULTADOS</li></a><a id="5" href="licenca.html"><li>LICENÇA</li></a><a id="6" href="instrucoes.html"><li>INSTRUÇÕES DE USO</li></a></ul>';
-    document.getElementById('div-main-nav').innerHTML = objetoMenu;
+    //let objetoMenu = '<ul><a id="0" href="index.html"><li>HOME</li></a><a id="1" href="entradamanual.html"><li>ENTRADA MANUAL</li></a><a id="2" href="entradacsv.html"><li>IMPORTAR CSV</li></a><a id="3" href="passadas.html"><li>PASSADAS</li></a><a id="4" href="resultado.html"><li>RESULTADOS</li></a><a id="5" href="licenca.html"><li>LICENÇA</li></a><a id="6" href="instrucoes.html"><li>INSTRUÇÕES DE USO</li></a></ul>';
+    //document.getElementById('div-main-nav').innerHTML = objetoMenu;
     iluminaMenuAtivo();
 } // function
 
@@ -44,9 +44,9 @@ function iluminaMenuAtivo(){
         case "ucoes.html": // Instruções de uso
             document.getElementById('6').style.borderTop = "3px solid var(--laranja)";
             break;
-        default:
-            window.location.href = "index.html"; // Se não houve escolha, abre o index (e ilumina)
-            break;
+        //default:
+            //window.location.href = "index.html"; // Se não houve escolha, abre o index (e ilumina)
+            //break;
     }
     
 } // function
